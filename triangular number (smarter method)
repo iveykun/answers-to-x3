@@ -1,0 +1,12 @@
+def tri2():
+    inputx = int(input())
+    result = 0
+    list = []
+    
+    if inputx <= 0:
+        print("ERROR")
+    
+    else:
+        list2 = range(inputx+1) # range actually starts at zero 
+        print(sum(list2))
+tri2()

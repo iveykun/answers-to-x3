@@ -1,0 +1,13 @@
+inputx = int(input())
+result = 0
+
+if inputx <= 0:
+    print("ERROR")
+
+else:
+    while inputx != 0:
+        result += inputx
+        inputx -= 1
+    print(result)
+    
+print("FINISHED")

@@ -1,0 +1,35 @@
+def cell():
+    msg = input("enter message")
+    counter = 0
+    time = 0
+    
+    pos1 = ['a','d','g','j','m','p','t','w']
+    pos2 = ['b','e','h','k','n','q','u','x']
+    pos3 = ['c','f','i','l','o','r','v','y']
+    pos4 = ['s','z']
+    # we're going to attribute letters to a list according to their position; c is in pos3 because you need to press 222 (2, 3 times)
+    while counter+1 <= len(msg):  # remember that len starts at 1
+        for letter in msg:
+            if letter in pos1:
+                time += 1
+            elif letter in pos2:
+                time += 2
+            elif letter in pos3:
+                time += 3
+            else:
+                time += 4
+            if counter+1 != len(msg):  # make sure to exclude the last letter since there is no "nextletter"
+            # there is probably a way to write this in 1 line but i'm lazy
+                if msg[counter] in pos1 and msg[counter+1] in pos1:
+                    time += 2
+                elif msg[counter] in pos2 and msg[counter+1] in pos2:
+                    time += 2
+                elif msg[counter] in pos3 and msg[counter+1] in pos3:
+                    time += 2
+                elif msg[counter] in pos4 and msg[counter+1] in pos4: 
+                # we cannot use else here since it will just add 2 seconds to everything
+                    time += 2
+            counter += 1
+    print("it will take",time,"seconds to write this")
+    cell()
+cell()

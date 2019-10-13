@@ -1,12 +1,29 @@
-def cube():
-    x = float ( input ('Enter a number : '))
+def cuben():
+    inputx = float(input())
     guess = x / 2
     error = 1e-3
 
-    while abs(guess**3 - x) > error :
-        guess = (guess - (((guess**3) - x) / (3 * guess**2)))
-    print("Cube root of", x, "is", guess)
-    cube()
-cube()
+    while abs(guess**3 - inputx) > error :
+        guess = (guess - (((guess**3) - inputx) / (3 * guess**2)))  # derivative of x^3 is 3x^2
+    print("Cube root of", inputx, "is", guess)
+    cuben()
 
-# Literally the same thing as the square root problem...
+
+# Literally the same thing as the newtonian square root problem...
+# Below is a more common, "dumber" method... Bisection
+
+
+def cubeb():
+    inputx = input()
+    lo, hi = 0, inputx
+    guess = (hi+lo)/2
+    
+    while abs(guess**3 - inputx) > 0.0001:
+        if guess**3 > inputx:
+            hi = guess
+            guess = (hi+lo)/2
+        if guess**3 < inputx:
+            low = guess
+        guess = (hi+lo)/2
+
+    print(guess)

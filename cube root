@@ -1,0 +1,12 @@
+def cube():
+    x = float ( input ('Enter a number : '))
+    guess = x / 2
+    error = 1e-3
+
+    while abs(guess**3 - x) > error :
+        guess = (guess - (((guess**3) - x) / (3 * guess**2)))
+    print("Cube root of", x, "is", guess)
+    cube()
+cube()
+
+# Literally the same thing as the square root problem...
